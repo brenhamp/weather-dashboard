@@ -1,0 +1,8 @@
+.hero {
+    background-image: linear-gradient(to right, rgb(64, 191, 233), rgb(9, 9, 87));
+    height: 5vh;
+    text-align: center;
+    margin: auto;
+    line-height: 5vh;
+    color: white
+}
