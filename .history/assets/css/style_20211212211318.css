@@ -17,7 +17,7 @@ h2 {
 }
 
 h3 {
-    padding: 1vw 0 1vw 1vw;
+    padding-top: 0.5vw;
 }
 
 .row {
@@ -34,12 +34,4 @@ button:not(:disabled) {
 
 #history {
     margin: auto;
-}
-
-.forecast {
-    padding: .25vw;
-    background-color:rgb(113, 113, 246);
-    height: 18vh;
-    width: 15%;
-    border-radius:10px;
 }

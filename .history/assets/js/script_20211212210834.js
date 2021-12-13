@@ -90,7 +90,6 @@ const todaysWeather = document.getElementById("todays-weather");
                            const forecastSky = document.createElement("img");
                            forecastSky.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
                            forecastSky.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
-                           forecastSky.setAttribute("class", "mx-auto text-center d-flex");
                            forecastEls[i].append(forecastSky);
                            const forecastTempEl = document.createElement("p");
                            forecastTempEl.innerHTML = "Temp: " + response.data.list[forecastIndex].main.temp + " &#176F";
@@ -114,7 +113,7 @@ const todaysWeather = document.getElementById("todays-weather");
             const historyEl = document.createElement("input");
                 historyEl.setAttribute("type", "text");
                 historyEl.setAttribute("readonly", true);
-                historyEl.setAttribute("class", "d-inline-block text-center text-light align-center rounded bg-primary border-white");
+                historyEl.setAttribute("class", "row d-inline-block bg-dark margin-10 text-light text-align-center");
                 historyEl.setAttribute("value", searchHistory[i]);
                 historyEl.addEventListener("click", function() {
                 getWeather(historyEl.value);

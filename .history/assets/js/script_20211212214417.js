@@ -114,7 +114,7 @@ const todaysWeather = document.getElementById("todays-weather");
             const historyEl = document.createElement("input");
                 historyEl.setAttribute("type", "text");
                 historyEl.setAttribute("readonly", true);
-                historyEl.setAttribute("class", "d-inline-block text-center text-light align-center rounded bg-primary border-white");
+                historyEl.setAttribute("class", "d-inline-block bg-dark text-light text-center align-center");
                 historyEl.setAttribute("value", searchHistory[i]);
                 historyEl.addEventListener("click", function() {
                 getWeather(historyEl.value);

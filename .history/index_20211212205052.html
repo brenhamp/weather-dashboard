@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <title>Weather Dashboard</title>
 </head>
-<body class="bg-dark text-light">
+<body>
     <header class="hero">
         <h1>Weather Dashboard</h1>
     </header>
 
-    <div class="row container-fluid">
+    <div class="row">
         <div class="col-lg-4">
             <h2>City Search:</h2>
             <div class="input-group">
@@ -23,20 +23,19 @@
                     <button class="btn btn-primary" type="button" id="search-button">
                         <i class="fas fa-search"></i>
                     </button>
-                    
-                    <button class="btn btn-primary" type="button" id="clear-history">Clear history</button>
                 </div>
             </div>
 
+            <button class="btn btn-primary" type="button" id="clear-history">Clear history</button>
             <form id="history"></form>
 
         </div>
         <div class="col-lg-9">
-            <div class="row text-center">
+            <div class="row">
                 <div id="todays-weather">
                     <div>
-                        <h2 id="city-name" class="city-name">
-                        </h2>
+                        <h3 id="city-name" class="city-name">
+                        </h3>
                         <img id="sky">
                         <div id="temperature"></div>
                         <div id="humidity"></div>
@@ -49,6 +48,7 @@
             <!-- hide forecast until needed -->
             <div id="five-day-forecast" class="d-none">
                 <h3>Five-Day Forecast</h3>
+            
                 <div class="row">
                     <div class="forecast"></div>
                     <div class="forecast"></div>
@@ -56,6 +56,7 @@
                     <div class="forecast"></div>
                     <div class="forecast"></div>
                 </div>
+
             </div>
         </div>
     </div>
