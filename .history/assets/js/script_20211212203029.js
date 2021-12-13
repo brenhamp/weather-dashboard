@@ -12,7 +12,6 @@ const UV = document.getElementById("UV");
 const history = document.getElementById("history");
 const forecast = document.getElementById("five-day-forecast");
 const todaysWeather = document.getElementById("todays-weather");
-
     //my API key from OpenWeather
     apiKey = "4f9f2b98f7dbd0bd303f0561775c2890";
     
@@ -58,21 +57,19 @@ const todaysWeather = document.getElementById("todays-weather");
                     else {
                         UVIndex.setAttribute("class", "badge badge-danger");
                     }
-                    //append to HTML
                     UVIndex.innerHTML = response.data[0].value;
                     UV.innerHTML = "UV Index: ";
                     UV.append(UVIndex);
         });
 
-           //five-day forecast script
+           //five-day forecast
            let cityID = response.data.id;
            let forecastQueryURL = "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&units=imperial" + "&appid=" + apiKey;
            axios.get(forecastQueryURL)
                .then(function (response) {
-                   //when query is sent, show the forecast elements
                    forecast.classList.remove("d-none");
 
-                       //select all forecast divs and assign future dates to them in order
+                       //  Parse response to display forecast for next 5 days
                        const forecastEls = document.querySelectorAll(".forecast");
                        for (i = 0; i < forecastEls.length; i++) {
                            forecastEls[i].innerHTML = "";
@@ -86,11 +83,11 @@ const todaysWeather = document.getElementById("todays-weather");
                            forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
                            forecastEls[i].append(forecastDateEl);
 
-                           //append sky icons and weather info to each future day forecast
-                           const forecastSky = document.createElement("img");
-                           forecastSky.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
-                           forecastSky.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
-                           forecastEls[i].append(forecastSky);
+                           // Icon for current weather
+                           const forecastWeatherEl = document.createElement("img");
+                           forecastWeatherEl.setAttribute("src", "https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
+                           forecastWeatherEl.setAttribute("alt", response.data.list[forecastIndex].weather[0].description);
+                           forecastEls[i].append(forecastWeatherEl);
                            const forecastTempEl = document.createElement("p");
                            forecastTempEl.innerHTML = "Temp: " + response.data.list[forecastIndex].main.temp + " &#176F";
                            forecastEls[i].append(forecastTempEl);
@@ -102,13 +99,10 @@ const todaysWeather = document.getElementById("todays-weather");
     });
 }
 
-    //search history functionality
     let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
     
     function renderSearchHistory () {
-        //start off blank
         history.innerHTML = "";
-        //create new history item each time a city name is submitted
         for (let i = 0; i < searchHistory.length; i++) {
             const historyEl = document.createElement("input");
             Object.assign(historyEl, {
@@ -123,12 +117,10 @@ const todaysWeather = document.getElementById("todays-weather");
             history.append(historyEl);
         }
     }
-    
-    //initial call for history function
+
     renderSearchHistory();
-    
-    //listener for search; save searches to localStorage
-    search.addEventListener("click",  function () {
+
+    search.addEventListener("submit",  function () {
         searchTerm = city.value;
         getWeather(searchTerm);
         searchHistory.push(searchTerm);
@@ -136,8 +128,6 @@ const todaysWeather = document.getElementById("todays-weather");
         renderSearchHistory();
     })
 
-
-    //listener for clear button; clear localStorage and leave search array blank
     clear.addEventListener("click", function () {
         localStorage.clear();
         searchHistory = [];
@@ -147,5 +137,4 @@ const todaysWeather = document.getElementById("todays-weather");
 
 };
 
-//initialize javascript
 weatherDashboard ();
