@@ -10,6 +10,7 @@ function weatherDashboard {
     wind = document.getElementById("wind-speed");
     UV = document.getElementById("UV-index");
     history = document.getElementById("history");
-    forecast = document.getElementById("five-day-forecast");
-    todaysWeather = document.getElementById("todays-weather");
+    var fivedayEl = document.getElementById("fiveday-header");
+    var todayweatherEl = document.getElementById("today-weather");
+    let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 }
