@@ -1,6 +1,6 @@
 # Weather Dashboard
 
-![weather dashboard](./assets/images/weather-dashboard-example.png)
+![weather dashboard](https://github.com/brenhamp/weather-dashboard/blob/develop/assets/images/weather-dashboard-example.PNG)
 
 This is a weather dashboard that uses [OpenWeather](https://openweathermap.org/api/one-call-api) to retrieve the current weather, as well as a five-day forecast.
 
