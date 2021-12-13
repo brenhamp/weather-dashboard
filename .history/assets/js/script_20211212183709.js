@@ -1,4 +1,4 @@
-function weatherDashboard() {
+function weatherDashboard {
     //define HTML elements
     city = document.getElementById("city-input");
     search = document.getElementById("search-button");
@@ -28,10 +28,8 @@ function weatherDashboard() {
 
             cityName.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year +")";
         })
-
-       
     }
- getWeather(cityName);
+
     let searchHistory = JSON.parse(localStorage.getItem("search")) || [];
 
 

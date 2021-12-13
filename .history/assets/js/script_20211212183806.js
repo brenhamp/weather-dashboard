@@ -1,4 +1,4 @@
-function weatherDashboard() {
+function weatherDashboard {
     //define HTML elements
     city = document.getElementById("city-input");
     search = document.getElementById("search-button");
